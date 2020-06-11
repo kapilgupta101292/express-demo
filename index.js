@@ -23,10 +23,11 @@ console.log('Application Name: ' + config.get('name'));
 console.log('Mail Server: ' + config.get('mail.host'));
 console.log('Mail Password: ' + config.get('mail.password'));
 
-if (app.get('env') === 'development') {
+if (app.get('env') === 'production') {
   app.use(morgan('common'));
   //   app.use(morgan('tiny'));
-  startupDebugger.log('Morgan Enabled');
+  startupDebugger('Morgan Enabled');
+  dbDebugger('Connected to db');
 }
 
 app.use(logger);
